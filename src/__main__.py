@@ -6,5 +6,5 @@ if __name__ == "__main__":
     from LoginScreen import LoginScreen
 
     app = Application("Mastk")
-    LoginScreen(app)
+    LoginScreen(app, app.get_session_manager())
     app.mainloop()

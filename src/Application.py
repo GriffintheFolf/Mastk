@@ -1,6 +1,6 @@
 from tkinter import *
-from tkinter import ttk
 
+from SessionManager import SessionManager
 from Styles import Styles
 
 
@@ -11,6 +11,8 @@ class Application(Tk):
         self.title(title)
         Styles()
 
+        self.__session = SessionManager()
+
     # modifiers
     def set_title(self, title: str) -> None:
         """
@@ -19,3 +21,11 @@ class Application(Tk):
         :return: None
         """
         self.title(title)
+
+    # accessors
+    def get_session_manager(self):
+        """
+        Returns the SessionManager object in use.
+        :return: SessionManager
+        """
+        return self.__session
