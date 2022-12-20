@@ -11,3 +11,4 @@ class Styles:
 
         # font styles
         s.configure("Title.TLabel", font="helvetica 36", padding=5)
+        s.configure("Error.TLabel", foreground="red")
