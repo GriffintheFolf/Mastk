@@ -74,5 +74,5 @@ class SessionManager:
             return -2
 
         # if we made it this far, we should be in now!
-        print("we did it!")
+        self.__api_instance = Mastodon(access_token=Path(f"{self.__login_save_dir}/{MASTK_USERCREDS_FILE}"))
         return 0
