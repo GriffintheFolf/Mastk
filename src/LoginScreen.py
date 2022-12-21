@@ -3,20 +3,21 @@
 from tkinter import *
 from tkinter import ttk
 
-from Application import Application
 from SessionManager import SessionManager
 
 
 class LoginScreen:
 
-    def __init__(self, root: Application, session: SessionManager):
+    def __init__(self, root: Tk, session: SessionManager):
         """
         Places the elements for the login screen onto the window.
         :param root: Application
         :param session: SessionManager
         """
 
-        self.superframe = ttk.Frame(root.penultimo, padding=(15, 15, 15, 15))
+        self.superframe = ttk.Frame(root, padding=(15, 15, 15, 15))
+        self.__application = root
+
         self.email = StringVar(None, "")
         self.instance = StringVar(None, "")
         self.__password = StringVar(None, "")
@@ -70,6 +71,9 @@ class LoginScreen:
         if status == -1:
             self.status.set("Login failed! Are your email, instance, and password correct?")
             return
-        if status == -2:
+        elif status == -2:
             self.status.set("Oops! Something else went wrong...")
             return
+        elif status == 0:
+            self.__application.clear_penultimo()
+            self.__application.layout.place()

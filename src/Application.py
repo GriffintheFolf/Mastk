@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 
+from MainLayout import MainLayout
 from SessionManager import SessionManager
 from Styles import Styles
 
@@ -14,7 +15,10 @@ class Application(Tk):
 
         self.penultimo = ttk.Frame(self)
         self.penultimo.grid(row=0, column=0)
+
+        # screens and other management
         self.__session = SessionManager()
+        self.layout = MainLayout(self)
 
         # menu bar
         self.option_add("*tearOff", FALSE)
@@ -50,6 +54,14 @@ class Application(Tk):
         :return: None
         """
         self.title(title)
+
+    def clear_penultimo(self):
+        """
+        Destroys all child widgets of penultimo, the penultimate frame.
+        :return: None
+        """
+        for widget in self.penultimo.winfo_children():
+            widget.destroy()
 
     # accessors
     def get_session_manager(self):
