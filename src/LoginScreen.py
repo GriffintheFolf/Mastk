@@ -3,19 +3,20 @@
 from tkinter import *
 from tkinter import ttk
 
+from Application import Application
 from SessionManager import SessionManager
 
 
 class LoginScreen:
 
-    def __init__(self, root: Tk, session: SessionManager):
+    def __init__(self, root: Application, session: SessionManager):
         """
         Places the elements for the login screen onto the window.
-        :param root: Tk
+        :param root: Application
         :param session: SessionManager
         """
 
-        self.superframe = ttk.Frame(root, padding=(15, 15, 15, 15))
+        self.superframe = ttk.Frame(root.penultimo, padding=(15, 15, 15, 15))
         self.email = StringVar(None, "")
         self.instance = StringVar(None, "")
         self.__password = StringVar(None, "")
