@@ -44,5 +44,5 @@ class MainLayout:
 
         i = 0
         for button in self.sidebar_buttons:
-            self.sidebar_buttons[button].grid(row=i, column=0, padding=(5, 5, 15, 15))
+            self.sidebar_buttons[button].grid(row=i, column=0, padx=5, pady=15)
             i += 1

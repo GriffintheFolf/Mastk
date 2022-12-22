@@ -13,12 +13,12 @@ class Application(Tk):
         self.title(title)
         Styles()
 
-        self.penultimo = ttk.Frame(self)
+        self.penultimo = ttk.Frame(self, name="penultimo")
         self.penultimo.grid(row=0, column=0)
 
         # screens and other management
         self.__session = SessionManager()
-        self.layout = MainLayout(self)
+        self.layout = None
 
         # menu bar
         self.option_add("*tearOff", FALSE)
